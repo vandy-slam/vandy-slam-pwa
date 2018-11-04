@@ -1,35 +1,41 @@
 .App {
   text-align: center;
   background: whitesmoke;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
 }
 
 .header{
   text-align: center;
+  padding-top: -2%;
   font-size: 25px;
   background: black;
   color: whitesmoke;
   position: fixed;
-  top: 0;
-  padding-top: 0px; 
+  top: 0; 
   width: 100%;
   height: 10%;
 }
 
 .body{
   position: fixed;
-  align-content: center;
-  padding-top: 5%;
+  margin-top: 50px;
+  padding-top: 55px;
   width: 100%;
 }
 
 .headerInfo{
   text-align: center;
-  padding-bottom: 10px;  
+  padding-bottom: 12px;
+  font-size: 18px;
 }
 
 .map{
   text-align: center;
+  font-weight: bold;
+  font-size: 18px;
   padding-bottom: 10%;
+  padding-top: 2.5px;
+  width: 100%;
 }
 
 .footer{

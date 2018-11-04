@@ -19,7 +19,7 @@ const bigData = [
     y: 6
   },
   {
-    type: 'Exit',
+    type: 'Mens',
     x: 5,
     y: 2
   },
@@ -29,7 +29,7 @@ const bigData = [
     y: 4
   },
   {
-    type: 'Bathroom',
+    type: 'Womens',
     x: 5,
     y: 9
   },
@@ -44,12 +44,12 @@ const bigData = [
     y: 6
   },
   {
-    type: 'Wall',
+    type: 'Womens',
     x: 3,
     y: 9
   },
   {
-    type: 'Exit',
+    type: 'Mens',
     x: 7,
     y: 9
   }
@@ -67,7 +67,12 @@ const config = [
     stroke: 'red'
   },
   {
-    type: 'Bathroom',
+    type: 'Womens',
+    color: '#FF69B4',
+    stroke: 'pink'
+  },
+  {
+    type: 'Mens',
     color: '#00ff00',
     stroke: 'green'
   }
@@ -84,14 +89,13 @@ class App extends Component {
     this.mouseMoveHandler = this.mouseMoveHandler.bind(this);
 
     this.state = {
-      floor: 1,
+      floor: 'First Floor',
       dataDisplay: '',
       showToolTip: false,
       randomDataIntervalId: null,
       windowWidth: 400,
       componentWidth: 1000
     };
-
   }
 
   mouseOverHandler(d, e) {
@@ -119,7 +123,7 @@ class App extends Component {
   }
 
   onFloorChange(f) {
-    this.setState({floor: f});
+    this.setState({ floor: f.target.value });
   }
 
   createTooltip() {
@@ -142,15 +146,29 @@ class App extends Component {
         <div className="headerInfo">
           <h1>Where are you?</h1>
           <p>What floor are you on?</p>
-            <select value={this.state.floor} onChange={this.onFloorChange}>
-              <option value={0}>Basement</option>
-              <option value={1}>Floor 1</option>
-              <option value={2}>Floor 2</option>
-              <option value={3}>Floor 3</option>              
-            </select>
+          <label>
+            <input type="radio" value='Basement' checked={this.state.floor === 'Basement'}
+              onChange={this.onFloorChange} />
+            Basement
+            </label>
+          <label>
+            <input type="radio" value='First Floor' checked={this.state.floor === 'First Floor'}
+              onChange={this.onFloorChange} />
+            Floor 1
+            </label>
+          <label>
+            <input type="radio" value='Second Floor' checked={this.state.floor === 'Second Floor'}
+              onChange={this.onFloorChange} />
+            Floor 2
+            </label>
+          <label>
+            <input type="radio" value='Third Floor' checked={this.state.floor === 'Third Floor'}
+              onChange={this.onFloorChange} />
+            Floor 3
+            </label>
         </div>
         <div className="map">
-          <h2>Floor {this.state.floor}</h2>
+          <h2>{this.state.floor}</h2>
           <ScatterplotChart
             data={bigData}
             config={config}

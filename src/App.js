@@ -143,9 +143,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="header">
+          <p>Rehakt Native Indoor Tracker</p>
+        </div>
+        <div className="body">
         <div className="headerInfo">
-          <h1>Where are you?</h1>
-          <p>What floor are you on?</p>
+          <h2>What floor are you on?</h2>
           <label>
             <input type="radio" value='Basement' checked={this.state.floor === 'Basement'}
               onChange={this.onFloorChange} />
@@ -182,6 +185,10 @@ class App extends Component {
             mouseMoveHandler={this.mouseMoveHandler}
             clickHandler={this.clickHandler.bind(this)}
           />
+        </div>
+        </div>
+        <div className="footer">
+          <p>&copy; 2018 Rehakt Native All Rights Reserved.</p>
         </div>
       </div>
     );
